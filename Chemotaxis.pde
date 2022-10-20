@@ -1,11 +1,12 @@
+int x = 150;
+int y = 150;
 Chem[] bob;
-Chem[] sue;
 void setup() {
   size(500,500);
   bob = new Chem[50];
   for(int i = 0; i < bob.length; i++) {
     bob[i] = new Chem();
-    //sue[i] = new Chem(color(255,0,0), 0, 10, 2);
+    
   }
 }
 void draw() {
@@ -14,9 +15,10 @@ void draw() {
     bob[i].show();
     bob[i].chem();
     bob[i].inflate();
-    sue[i].show();
-    sue[i].chem();
   }
+  
+    
+      
 }
 
 class Chem {
@@ -33,14 +35,25 @@ color myC;
     myY = height/2;
     myXspeed = 1;
   }
-  
-  void show() {
-    fill((int)(Math.random()*250),(int)(Math.random()*250),(int)(Math.random()*250));
-    ellipse(myX,myY,mySize,mySize);
-  }
   void chem() {
     myX = myX + (int)(Math.random()*7)-3;
     myY = myY + (int)(Math.random()*7)-3;
+  }
+  void show() {
+    fill((int)(Math.random()*250),(int)(Math.random()*250),(int)(Math.random()*250));
+    ellipse(x,myY,mySize,mySize);
+    //ellipse(x,200, 60, 60);
+      if(mouseX > x) 
+        x = x + (int)(Math.random()*5)-1;
+      
+      else 
+        x = x + (int)(Math.random()*5)-3;
+        
+      /*if(mouseX > y) 
+        x = x + (int)(Math.random()*5)-1;
+      
+      else 
+        x = x + (int)(Math.random()*5)-3;*/     
   }
   void inflate() {
     mySize = mySize + 1;
